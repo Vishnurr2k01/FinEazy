@@ -1,11 +1,13 @@
 .Investment_container{
 width: 50rem;
 box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+/* background: rgb(232, 232, 236); */
 
 
 }
 .Investment_container h5{
     max-width: 50ch;
+   
 }
 .Investment_viewbtn{
     border: 1px solid #2685ef ;
