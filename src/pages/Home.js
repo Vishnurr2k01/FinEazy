@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Investment from '../components/Investment'
 import '../assets/investment.css'
 import { GoVerified } from 'react-icons/go'
 import { ImBookmarks } from 'react-icons/im'
 import { BsFillBriefcaseFill } from 'react-icons/bs'
 import { GiCoffeeMug } from 'react-icons/gi'
+import axios from 'axios'
 
 function Home() {
+    const [btcvalue, setbtcvalue] = useState([])
+    useEffect(() => {
+        axios.get('https://2ffa-2402-8100-3927-fa42-a416-d371-a0b9-1eef.in.ngrok.io/getprice/home').then((res) => {
+            setbtcvalue(res.data)
+            console.log(res.data);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }, [])
+    console.log(btcvalue);
+
     return (
         <div>
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-4 text-left mb-12 rounded-lg" >
@@ -15,16 +27,16 @@ function Home() {
                     <h5 className='text-xs'>Markets&your investments</h5>
                 </div>
                 <div className="">
-                    <h4>NIFTY</h4>
-                    <h3>142412</h3>
+                    <h4>BTC</h4>
+                    <h3 className='text-2xl'>142412</h3>
                 </div>
                 <div className="">
-                    <h4>NIFTY</h4>
-                    <h3>142412</h3>
+                    <h4>Current Value</h4>
+                    <h3>-</h3>
                 </div>
                 <div className="">
-                    <h4>NIFTY</h4>
-                    <h3>142412</h3>
+                    <h4>Current Returns</h4>
+                    <h3>-</h3>
                 </div>
                 <div className="">
                     <button className='bg-[#2685ef] text-white p-1 rounded' type="submit">Discover smallcases</button>
