@@ -3,7 +3,7 @@ import './App.css';
 import Home from './pages/Home';
 import Navbar from './components/Navbar'
 import Details from './components/Details'
-
+import Create from './components/Create';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
       <Navbar />
       <div className="pt-16">
-        <Details/>
+       <Create/>
       </div>
 
     </div>
