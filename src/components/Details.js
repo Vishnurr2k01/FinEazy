@@ -28,10 +28,11 @@ const Investment = () => {
 
   </div>
     </div>
-    <fieldset className="border-2">
+    <fieldset className="border-2 mx-8">
         <legend>
             Popular
         </legend>
+        Crossed more than 50k investors
     </fieldset>
     <div className="overview">
         <div className="n text-xl font-bold">

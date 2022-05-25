@@ -9,9 +9,12 @@ import Details from './components/Details'
 function App() {
   return (
     <div className="App">
-    <Navbar />
-      {/* <Home /> */}
-      <Details />
+
+
+      <Navbar />
+      <div className="pt-16">
+        <Details/>
+      </div>
 
     </div>
   );
