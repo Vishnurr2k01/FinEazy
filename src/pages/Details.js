@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import ChartPie from '@garvae/react-pie-chart'
+import {FaDotCircle} from 'react-icons/fa'
 
 
 function Details() {
@@ -45,7 +46,7 @@ function Details() {
                 </div>
                 <div className="ml-12">
                     <h5 className='text-xs'>Minimum Investment amount</h5>
-                    <h3 className='text-xl mt-4'>&#8377; 262</h3>
+                    <h3 className='text-2xl mt-4 font-bold'> 20 USDT</h3>
                     <h6 className='mt-4 text-sm'>Get free access forever</h6>
                     <h5 className='text-sm font-bold'>See more benifits</h5>
                     <button type="submit" className='mt-4 w-[10rem] py-2 border-2'> Invest Now</button> <br />
@@ -68,7 +69,8 @@ function Details() {
                 >
                     <ChartPie data={data} parentRef={ref} />
                 </div>
-
+<h4 className='text-[#e74949] flex items-center text-xl mt-4'><FaDotCircle/> &nbsp; BTC : 50%</h4>
+<h4 className='text-[#49bae7] flex items-center text-xl my-2'><FaDotCircle/>&nbsp; ETH : 50%</h4>
             </div>
 
         </div>
