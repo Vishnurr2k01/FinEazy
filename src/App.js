@@ -6,8 +6,10 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <div className="App">
-    <Navbar />
-      <Home />
+      <Navbar />
+      <div className="pt-16">
+        <Home />
+      </div>
     </div>
   );
 }
