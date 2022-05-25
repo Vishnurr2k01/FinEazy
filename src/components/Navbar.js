@@ -8,7 +8,10 @@ function Navbar() {
                 <h5 className='mx-2'>Discover</h5>
                 <h5 className='mx-2'>Create</h5>
             </div>
-            <div className=""></div>
+            <div className="flex mr-12">
+                <h5 className='mx-2'> Watchlist</h5>
+                <h5 className='mx-2'>Investments</h5>
+            </div>
         </div>
     )
 }
