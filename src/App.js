@@ -5,21 +5,26 @@ import Create from './components/Create'
 import Navbar from './components/Navbar';
 import Details from './pages/Details';
 import { Route, Routes } from 'react-router-dom'
+
+import React,{useState} from 'react';
+
 function App() {
+  const [basket, setBasket] = useState('')
+
   return (
     <div className="App">
-    
-        <Navbar />
-        <div className="pt-16">
-      <Routes>
 
-          <Route path="/" element={<Home />} />
-          <Route path="/details" element={<Details />} />
+      <Navbar />
+      <div className="pt-16">
+        <Routes>
 
-          <Route path="/create" element={<Create/>} />
-      </Routes>
-        </div>
-      
+          <Route path="/" element={<Home basket={basket} setBasket={setBasket} />} />
+          <Route path="/details" element={<Details basket={basket} setBasket={setBasket} />} />
+
+          <Route path="/create" element={<Create />} />
+        </Routes>
+      </div>
+
     </div>
   )
 }
