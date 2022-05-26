@@ -4,6 +4,7 @@ import { FaDotCircle } from 'react-icons/fa'
 import axios from 'axios'
 
 function Details() {
+    const [disabled, setDisabled] = useState(false)
     const data = [{
         color: '#e74949',
         order: 1,
@@ -23,17 +24,17 @@ function Details() {
         change: '14.4',
         title: 'Popular',
         weight1: 1,
-        weight2:2,
-        coin1 : 'BTC',
-        coin2:'ETH',
-        image : ''
+        weight2: 2,
+        coin1: 'BTC',
+        coin2: 'ETH',
+        image: ''
 
     }]
     const [amount, setAmount] = useState(0)
     const investHandler = () => {
 
         console.log('hello');
-        axios.post(`https://fineazy.herokuapp.com/getprice/buy?amount=${amount}`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post(`https://fineazy.herokuapp.com/getprice/buy?amount=0.00040}`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
     }
     const sell = () => {
         axios.post('https://fineazy.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
@@ -71,9 +72,9 @@ function Details() {
                     <h3 className='text-2xl mt-4 font-bold'> 20 USDT</h3>
                     <h6 className='mt-4 text-sm'>Get free access forever</h6>
                     <h5 className='text-sm font-bold'>See more benifits</h5>
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={investHandler}> Invest Now</button> <br />
+                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={investHandler}> Invest Now</button> <br />
                     {/* <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br /> */}
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-red-400 text-red-400 hover:bg-red-400 hover:text-white font-semibold rounded text-xl' onClick={sell}>sell</button>
+                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-red-400 text-red-400 hover:bg-red-400 hover:text-white font-semibold rounded text-xl' onClick={sell}>sell</button>
                 </div>
             </div>
             <div className="ml-[15rem] mt-8">
