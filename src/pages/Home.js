@@ -8,7 +8,23 @@ import { GiCoffeeMug } from 'react-icons/gi'
 import axios from 'axios'
 
 function Home() {
-   
+   const data=[
+       {
+           name:'Bluechips',
+           desc:'This basket consists of 50% BTC AND 50% ETH, These are higher marketcap coins',
+           desc2:'This scheme has crossed over 50k users.'
+       },
+       {
+              name:'Flaming hot',
+                desc:'This contains GLMR,IMX,JOE',
+                desc2:'This scheme has 20k users'
+       },
+       {
+                name:'Metaverse',
+                desc:'This scheme consists of web3 metaverse project',
+                desc2:'Take premium subscription to access this bucket'
+       }
+   ]
     return (
         <div>
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg" >
