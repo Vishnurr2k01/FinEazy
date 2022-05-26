@@ -12,7 +12,7 @@ function Investment(props) {
                 <div className=""></div>
                 <div className="">
                     <h3 className='text-xl font-semibold '>{props.title}</h3>
-                    <h5 className='text-md mt-2 text-gray-600'>{props.des}
+                    <h5 className='text-md mt-2 text-gray-600 w-[30ch]'>{props.des}
             </h5>
                 </div>
             </div>
@@ -22,7 +22,7 @@ function Investment(props) {
             </div>
             <div className="">
                 <Link to="/details">
-                <button className='Investment_viewbtn text-sm border-2 p-2 text-green-400 border-green-400 hover:bg-green-400 hover:text-white' type="submit">View Basket</button>
+                <button disabled={props.disabled} className='Investment_viewbtn text-sm border-2 p-2 text-green-400 border-green-400 hover:bg-green-400 hover:text-white' type="submit">View Basket</button>
 
                 </Link>
             

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import ChartPie from '@garvae/react-pie-chart'
-import {FaDotCircle} from 'react-icons/fa'
+import { FaDotCircle } from 'react-icons/fa'
 import axios from 'axios'
 import Modal from '../components/Modal'
 
@@ -20,9 +20,9 @@ function Details() {
         value: 10,
     }]
 
-    const [amount,setAmount] = useState(0)
-    
-       
+    const [amount, setAmount] = useState(0)
+
+
 
     const data2 = [{
         name: 'Bluechips',
@@ -37,21 +37,22 @@ function Details() {
         image: ''
 
     }]
-    
+
     const investHandler = () => {
 
         console.log('hello');
-        axios.post(`https://fineazy.herokuapp.com/getprice/buy/0.00040}`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post(`https://fineazy.herokuapp.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
     }
     const sell = () => {
 
         axios.post('https://fineazy.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
-       }
+    }
     const ref = useRef(null)
     return (
         <div>
             <div className="flex justify-between lg:mx-52 bg-gray-100 p-8 rounded-lg items-center">
                 <div className="flex">
+                <img src="https://miro.medium.com/max/1400/1*m5LvG5oPiUGZHR7om2kXyw.png" className='w-[10rem] rounded-2xl' alt="" />
                     <div className="">
                         <h3 className='text-2xl font-bold mb-2'>Bluechips</h3>
                         <h6 className='text-xs mb-2 text-gray-700'>Managed by Altcoin Gordan</h6>
@@ -80,11 +81,11 @@ function Details() {
                     <h3 className='text-2xl mt-4 font-bold'> 20 USDT</h3>
                     <h6 className='mt-4 text-sm'>Get free access forever</h6>
                     <h5 className='text-sm font-bold'>See more benifits</h5>
-                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={() => { setShowModal(!modal) }}> Invest Now</button> <br />
+                    <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={()=>setShowModal(!modal)}> Invest Now</button> <br />
                     {/* <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br /> */}
                     <button type="submit" disabled={disabled} className='mt-4 w-[10rem] py-2 border-2 border-red-400 text-red-400 hover:bg-red-400 hover:text-white font-semibold rounded text-xl' onClick={sell}>sell</button>
                 </div>
-                {modal ? <Modal setShowModal={setShowModal}/> : <></>}
+                {modal ? <Modal setShowModal={setShowModal} /> : <></>}
             </div>
             <div className="ml-[15rem] mt-8">
                 <h3 className='text-xl'>Weights</h3>
@@ -98,12 +99,12 @@ function Details() {
 
                     }}
                     className="mt-12"
-                    // donutHoleRadius=
+                // donutHoleRadius=
                 >
                     <ChartPie data={data} parentRef={ref} />
                 </div>
-<h4 className='text-[#e74949] flex items-center text-xl mt-4'><FaDotCircle/> &nbsp; BTC : 50%</h4>
-<h4 className='text-[#49bae7] flex items-center text-xl my-2'><FaDotCircle/>&nbsp; ETH : 50%</h4>
+                <h4 className='text-[#e74949] flex items-center text-xl mt-4'><FaDotCircle /> &nbsp; BTC : 50%</h4>
+                <h4 className='text-[#49bae7] flex items-center text-xl my-2'><FaDotCircle />&nbsp; ETH : 50%</h4>
             </div>
 
         </div>

@@ -1,8 +1,25 @@
-import React, { useState } from 'react'
-import Slider from 'rc-slider';
+import React, { useState,useEffect } from 'react'
+import axios from 'axios'
 
 function Modal({ setShowModal, modal }) {
-    const [slideval, setSlideval] = useState()
+    const [balance, setbalance] = useState({})
+
+    useEffect(() => {
+      
+    axios.get('https://fineazy.herokuapp.com/getprice/balance').then((res)=>{
+        console.log(res.data);
+        setbalance(res.data)
+    }).catch((err)=>{
+        console.log(err);
+    })
+     
+    }, [])
+    
+    const investHandler = () => {
+        console.log('hello');
+        axios.post(`https://fineazy.herokuapp.com/getprice/buy`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+    }
+    
     return (
 
 
@@ -24,6 +41,19 @@ function Modal({ setShowModal, modal }) {
                         {/*body*/}
                         <div className="relative p-6 flex-auto">
                             <p className="my-4 text-slate-500 text-lg leading-relaxed w-[70rem]">
+                                <h3 className='text-black'>Available Balance :</h3>
+                            <div className="flex">
+                            BTC : {balance && balance.BTC} <br />
+                            USDT : {balance && balance.BTC} 
+
+                            </div>
+                                <div className="mt-12">
+                                    <label htmlFor="" className='text-black'> Enter Amount : </label>
+                                    <input type="text" className='border-2 pl-2 ' />
+                                </div>
+                                <div className="mt-8 ">
+                                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={investHandler}> Invest </button>
+                                </div>
 
                             </p>
                         </div>

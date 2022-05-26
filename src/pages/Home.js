@@ -7,36 +7,40 @@ import { BsFillBriefcaseFill } from 'react-icons/bs'
 import { GiCoffeeMug } from 'react-icons/gi'
 import axios from 'axios'
 
-function Home() {
-   const data=[
-       {
-           name:'Bluechips',
-           desc:'This basket consists of 50% BTC AND 50% ETH, These are higher marketcap coins',
-           desc2:'This scheme has crossed over 50k users.'
-       },
-       {
-              name:'Flaming hot',
-                desc:'This contains GLMR,IMX,JOE',
-                desc2:'This scheme has 20k users'
-       },
-       {
-                name:'Metaverse',
-                desc:'This scheme consists of web3 metaverse project',
-                desc2:'Take premium subscription to access this bucket'
-       }
-   ]
-   const[ar,setar]=useState({})
-   useEffect(()=>{
-       let priceIntervel = setInterval(()=>{
-        axios.get('https://fineazy.herokuapp.com/getprice/5').then(res => { setar(res.data) }).catch(err => { console.log(err) })
+function Home({setBasket,basket}) {
+    const [disabled,setDisabled] = useState(false)
+    const data = [
+        {
+            name: 'Bluechips',
+            desc: 'This basket consists of 50% BTC AND 50% ETH, These are higher marketcap coins',
+            desc2: 'This scheme has crossed over 50k users.',
+            title: 'Popular'
+        },
+        {
+            name: 'Flaming hot',
+            desc: 'This contains GLMR,IMX,JOE',
+            desc2: 'This scheme has crossed over 20k users',
+            title: 'Premium'
+        },
+        {
+            name: 'Metaverse',
+            desc: 'This scheme consists of web3 metaverse project',
+            desc2: 'Take premium sub to access this bucket',
+            title: 'Premium'
+        }
+    ]
+    const [ar, setar] = useState({})
+    useEffect(() => {
+        let priceIntervel = setInterval(() => {
+            axios.get('https://fineazy.herokuapp.com/getprice/5').then(res => { setar(res.data) }).catch(err => { console.log(err) })
 
-       },3000)
-       return ()=>{
-              clearInterval(priceIntervel)
-       }
+        }, 3000)
+        return () => {
+            clearInterval(priceIntervel)
+        }
 
-       
-},[])
+
+    }, [])
 
     return (
         <div>
@@ -47,12 +51,12 @@ function Home() {
                 </div>
                 <div className="">
                     <h4 className='font-bold'>BTC</h4>
-                    {   
-                        ar?.BTCUSDT?.BTCUSDT ? 
-                        <h3 className='text-2xl font-medium'>{parseFloat(ar.BTCUSDT.BTCUSDT).toFixed(2)}</h3>
-                        :
-                        <h3 className='text-2xl font-medium'>Loading...</h3>
-            }
+                    {
+                        ar?.BTCUSDT?.BTCUSDT ?
+                            <h3 className='text-2xl font-medium'>{parseFloat(ar.BTCUSDT.BTCUSDT).toFixed(2)}</h3>
+                            :
+                            <h3 className='text-2xl font-medium'>Loading...</h3>
+                    }
                 </div>
                 <div className="">
                     <h4>Current Value</h4>
@@ -69,9 +73,14 @@ function Home() {
             <h3 className='text-2xl mb-8 font-bold text-center'>Investment Baskets</h3>
             <div className="flex lg:ml-60">
                 <div className="">
-                    <Investment title={"Bluechips"} des={"This basket consists of 50% BTC AND 50% ETH"} tag={"Popular"} tagdes={" This is the most popular investment in this platform"}/>
-                    <Investment title={"Flaming hot"} des={"This basket consists of high risk crypto"} tag={"Trending"} tagdes={" This is the currently trending investment basket"} />
-                    <Investment title={"Metaverse"} des={"This basket consists of metaverse tokens"} tag={"Trending"} tagdes={"This is one of the trending investment baskets"} />
+
+                {data.map((datas)=>(
+                    <>
+{datas.name==='Bluechips'? ()=>{setDisabled(false)}: ()=>setDisabled(true)}
+                    <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
+                    </>
+                ))}
+                    
                 </div>
                 <div className="Home_container2 p-4 ml-8 text-left rounded">
                     <h3 className='font-bold mb-4'>How to start investing in Basket</h3>
