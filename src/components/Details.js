@@ -1,5 +1,7 @@
 import React from "react";
+import axios from "axios";
 const Investment = () => {
+   
     return <>
     <div className="box mx-4 bg-[#F9FAFB] rounded-md my-5 p-10">
   <div className="flex flex-row">

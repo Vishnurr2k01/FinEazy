@@ -1,8 +1,11 @@
 import React from 'react'
 import '../assets/investment.css'
 import {FaCrown} from 'react-icons/fa'
-
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 function Investment() {
+    
+  
     return (
         <div className='Investment_container flex justify-between items-center mx-auto bg-slate-100 mb-4 rounded-lg p-4 text-left'>
             <div className="flex flex-row">
@@ -18,7 +21,13 @@ function Investment() {
                 <h5 className='text-xs'> Lorem ipsum dolor sit amet. </h5>
             </div>
             <div className="">
+                <Link to="/details">
                 <button className='Investment_viewbtn text-sm border-2 p-2' type="submit">View SmallCase</button>
+
+                </Link>
+            
+                
+           
             </div>
         </div>
     )

@@ -8,17 +8,7 @@ import { GiCoffeeMug } from 'react-icons/gi'
 import axios from 'axios'
 
 function Home() {
-    const [btcvalue, setbtcvalue] = useState([])
-    useEffect(() => {
-        axios.get('https://2ffa-2402-8100-3927-fa42-a416-d371-a0b9-1eef.in.ngrok.io/getprice/home').then((res) => {
-            setbtcvalue(res.data)
-            console.log(res.data);
-        }).catch((err) => {
-            console.log(err);
-        })
-    }, [])
-    console.log(btcvalue);
-
+   
     return (
         <div>
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-4 text-left mb-12 rounded-lg" >
@@ -28,7 +18,7 @@ function Home() {
                 </div>
                 <div className="">
                     <h4>BTC</h4>
-                    <h3 className='text-2xl'>142412</h3>
+                    <h3 className='text-2xl'>291456</h3>
                 </div>
                 <div className="">
                     <h4>Current Value</h4>

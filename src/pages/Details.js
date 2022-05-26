@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import ChartPie from '@garvae/react-pie-chart'
 import {FaDotCircle} from 'react-icons/fa'
-
+import axios from 'axios'
 
 function Details() {
     const data = [{
@@ -16,6 +16,13 @@ function Details() {
         segmentId: '002',
         value: 10,
     }]
+    const investHandler = () => {
+        console.log('hello');
+        axios.post('https://fineazy.herokuapp.com/getprice/buy').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+       }
+       const sell=()=>{
+        axios.post('https://fineazy.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+       }
     const ref = useRef(null)
     return (
         <div>
@@ -49,8 +56,9 @@ function Details() {
                     <h3 className='text-2xl mt-4 font-bold'> 20 USDT</h3>
                     <h6 className='mt-4 text-sm'>Get free access forever</h6>
                     <h5 className='text-sm font-bold'>See more benifits</h5>
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2'> Invest Now</button> <br />
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button>
+                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2' onClick={investHandler}> Invest Now</button> <br />
+                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br />
+                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2' onClick={sell}>sell</button>
                 </div>
             </div>
             <div className="ml-[15rem] mt-8">
