@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import ChartPie from '@garvae/react-pie-chart'
 import {FaDotCircle} from 'react-icons/fa'
 import axios from 'axios'
@@ -16,9 +16,11 @@ function Details() {
         segmentId: '002',
         value: 10,
     }]
+    const [amount,setAmount] = useState(0)
     const investHandler = () => {
+
         console.log('hello');
-        axios.post('https://fineazy.herokuapp.com/getprice/buy').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
+        axios.post(`https://fineazy.herokuapp.com/getprice/buy?amount=${amount}`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
        }
        const sell=()=>{
         axios.post('https://fineazy.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
@@ -46,19 +48,19 @@ function Details() {
             </fieldset>
             <div className="flex ml-[15rem] mt-12">
                 <div className="">
-                    <h3 className='text-xl  '>Overview</h3>
+                    <h3 className='text-2xl font-semibold '>Overview</h3>
 
                     <h4 className='text-xl mt-4'>About the Basket</h4>
                     <p className='max-w-[75ch] mt-8'>The scheme invests in the higher marketcap coins Bitcoin and Ethereum</p>
                 </div>
-                <div className="ml-12">
+                <div className="ml-32">
                     <h5 className='text-xs'>Minimum Investment amount</h5>
                     <h3 className='text-2xl mt-4 font-bold'> 20 USDT</h3>
                     <h6 className='mt-4 text-sm'>Get free access forever</h6>
                     <h5 className='text-sm font-bold'>See more benifits</h5>
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2' onClick={investHandler}> Invest Now</button> <br />
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br />
-                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2' onClick={sell}>sell</button>
+                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white rounded font-semibold text-xl' onClick={investHandler}> Invest Now</button> <br />
+                    {/* <button type="submit" className='mt-4 w-[10rem] py-2 border-2'>Add to Watchlist</button> <br /> */}
+                    <button type="submit" className='mt-4 w-[10rem] py-2 border-2 border-red-400 text-red-400 hover:bg-red-400 hover:text-white font-semibold rounded text-xl' onClick={sell}>sell</button>
                 </div>
             </div>
             <div className="ml-[15rem] mt-8">
