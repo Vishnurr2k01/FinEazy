@@ -7,8 +7,8 @@ import { BsFillBriefcaseFill } from 'react-icons/bs'
 import { GiCoffeeMug } from 'react-icons/gi'
 import axios from 'axios'
 
-function Home({setBasket,basket}) {
-    const [disabled,setDisabled] = useState(false)
+function Home({ setBasket, basket }) {
+    const [disabled, setDisabled] = useState(false)
     const data = [
         {
             name: 'Bluechips',
@@ -60,11 +60,11 @@ function Home({setBasket,basket}) {
                 </div>
                 <div className="">
                     <h4>Current Value</h4>
-                    <h3>$24.5</h3>
+                    <h3 className='text-xl'>-</h3>
                 </div>
                 <div className="">
                     <h4>Current Returns</h4>
-                    <h3 className='text-green-600'>+5%</h3>
+                    <h3 className=' text-xl'>-</h3>
                 </div>
                 <div className="">
                     <button className='bg-green-500 text-white px-6 py-2 rounded hover:px-7 hover:py-3 my-2' type="submit">Explore Baskets</button>
@@ -74,13 +74,13 @@ function Home({setBasket,basket}) {
             <div className="flex lg:ml-60">
                 <div className="">
 
-                {data.map((datas)=>(
-                    <>
-{datas.name==='Bluechips'? ()=>{setDisabled(false)}: ()=>setDisabled(true)}
-                    <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
-                    </>
-                ))}
-                    
+                    {data.map((datas) => (
+                        <>
+                            {datas.name === 'Bluechips' ? () => { setDisabled(false) } : () => setDisabled(true)}
+                            <Investment disabled={disabled} setBasket={setBasket} basket={basket} title={datas.name} des={datas.desc} tag={datas.title} tagdes={datas.desc2} />
+                        </>
+                    ))}
+
                 </div>
                 <div className="Home_container2 p-4 ml-8 text-left rounded">
                     <h3 className='font-bold mb-4'>How to start investing in Basket</h3>
