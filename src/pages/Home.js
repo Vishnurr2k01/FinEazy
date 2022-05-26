@@ -25,6 +25,19 @@ function Home() {
                 desc2:'Take premium subscription to access this bucket'
        }
    ]
+   const[ar,setar]=useState({})
+   useEffect(()=>{
+       let priceIntervel = setInterval(()=>{
+        axios.get('https://fineazy.herokuapp.com/getprice/5').then(res => { setar(res.data) }).catch(err => { console.log(err) })
+
+       },3000)
+       return ()=>{
+              clearInterval(priceIntervel)
+       }
+
+       
+},[])
+
     return (
         <div>
             <div className="Home_overview flex justify-between bg-slate-100 mx-auto p-8 text-left mb-12 rounded-lg" >
@@ -34,7 +47,12 @@ function Home() {
                 </div>
                 <div className="">
                     <h4 className='font-bold'>BTC</h4>
-                    <h3 className='text-2xl font-medium'>291456</h3>
+                    {   
+                        ar?.BTCUSDT?.BTCUSDT ? 
+                        <h3 className='text-2xl font-medium'>{parseFloat(ar.BTCUSDT.BTCUSDT).toFixed(2)}</h3>
+                        :
+                        <h3 className='text-2xl font-medium'>Loading...</h3>
+            }
                 </div>
                 <div className="">
                     <h4>Current Value</h4>

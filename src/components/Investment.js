@@ -22,7 +22,7 @@ function Investment(props) {
             </div>
             <div className="">
                 <Link to="/details">
-                <button className='Investment_viewbtn text-sm border-2 p-2 text-green-400 border-green-400' type="submit">View Basket</button>
+                <button className='Investment_viewbtn text-sm border-2 p-2 text-green-400 border-green-400 hover:bg-green-400 hover:text-white' type="submit">View Basket</button>
 
                 </Link>
             

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import ChartPie from '@garvae/react-pie-chart'
-import { FaDotCircle } from 'react-icons/fa'
+import {FaDotCircle} from 'react-icons/fa'
 import axios from 'axios'
 
 function Details() {
@@ -16,28 +16,15 @@ function Details() {
         segmentId: '002',
         value: 10,
     }]
-    const data2 = [{
-        name: 'Bluechips',
-        managed: 'Managed by Altcoin Gordan',
-        percent: '50% BTC AND 50% ETH',
-        change: '14.4',
-        title: 'Popular',
-        weight1: 1,
-        weight2:2,
-        coin1 : 'BTC',
-        coin2:'ETH',
-        image : ''
-
-    }]
-    const [amount, setAmount] = useState(0)
+    const [amount,setAmount] = useState(0)
     const investHandler = () => {
 
         console.log('hello');
         axios.post(`https://fineazy.herokuapp.com/getprice/buy?amount=${amount}`).then(res => { console.log(res.data) }).catch(err => { console.log(err) })
-    }
-    const sell = () => {
+       }
+       const sell=()=>{
         axios.post('https://fineazy.herokuapp.com/getprice/sell').then(res => { console.log(res.data) }).catch(err => { console.log(err) })
-    }
+       }
     const ref = useRef(null)
     return (
         <div>
@@ -88,12 +75,12 @@ function Details() {
 
                     }}
                     className="mt-12"
-                // donutHoleRadius=
+                    // donutHoleRadius=
                 >
                     <ChartPie data={data} parentRef={ref} />
                 </div>
-                <h4 className='text-[#e74949] flex items-center text-xl mt-4'><FaDotCircle /> &nbsp; BTC : 50%</h4>
-                <h4 className='text-[#49bae7] flex items-center text-xl my-2'><FaDotCircle />&nbsp; ETH : 50%</h4>
+<h4 className='text-[#e74949] flex items-center text-xl mt-4'><FaDotCircle/> &nbsp; BTC : 50%</h4>
+<h4 className='text-[#49bae7] flex items-center text-xl my-2'><FaDotCircle/>&nbsp; ETH : 50%</h4>
             </div>
 
         </div>
