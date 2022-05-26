@@ -29,9 +29,9 @@ function Details() {
             <div className="flex justify-between lg:mx-52 bg-gray-100 p-8 rounded-lg items-center">
                 <div className="flex">
                     <div className="">
-                        <h3 className='text-2xl font-bold mb-2'>Equity and Gold</h3>
-                        <h6 className='text-xs mb-2'>Managed by abcd </h6>
-                        <h5 className='max-w-[40ch] text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+                        <h3 className='text-2xl font-bold mb-2'>Bluechips</h3>
+                        <h6 className='text-xs mb-2 text-gray-700'>Managed by Altcoin Gordan</h6>
+                        <h5 className='max-w-[40ch] text-sm font-bold'>50% BTC AND 50% ETH</h5>
 
                     </div>
                 </div>
@@ -42,14 +42,14 @@ function Details() {
             </div>
             <fieldset className='border-4 w-[30rem] ml-[15rem] mt-12 p-4'>
                 <legend className='ml-4'><h3>Popular</h3></legend>
-                <h4>Lorem ipsum dolor sit amet.</h4>
+                <h4>We have over 50k investers for this basket</h4>
             </fieldset>
             <div className="flex ml-[15rem] mt-12">
                 <div className="">
-                    <h3 className='text-xl  '>Ovreview</h3>
+                    <h3 className='text-xl  '>Overview</h3>
 
-                    <h4 className='text-xl mt-4'>About the smallcase</h4>
-                    <p className='max-w-[75ch] mt-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tempore quae labore nostrum consectetur provident beatae nulla voluptate cum et.</p>
+                    <h4 className='text-xl mt-4'>About the Basket</h4>
+                    <p className='max-w-[75ch] mt-8'>The scheme invests in the higher marketcap coins Bitcoin and Ethereum</p>
                 </div>
                 <div className="ml-12">
                     <h5 className='text-xs'>Minimum Investment amount</h5>
